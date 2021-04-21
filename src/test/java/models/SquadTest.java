@@ -31,4 +31,10 @@ public class SquadTest {
         Squad newSquad = setUpNewSquad();
         assertEquals("Fast",newSquad.getName());
     }
+
+    @Test
+    public void getMaxSize_getsSquadSize_5() {
+        Squad newSquad = setUpNewSquad();
+        assertEquals(5,newSquad.getMaxSize());
+    }
 }
