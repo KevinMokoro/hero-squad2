@@ -2,11 +2,8 @@
     <h1>HEROES</h1>
     {{#if allHeroes}}
         {{#each allHeroes}}
-        <p>HERO</p>
-        <p>{{name}}</p>
-        <p>{{age}}</p>
-        <p>{{power}}</p>
-        <p>{{weakness}}</p>
+        <p>HERO Name</p>
+        <p>{{name}} <a href="heroes/{{id}}">View Hero Features</a> </p>
         {{/each}}
     {{else}}
         <p>No HEROES</p>
