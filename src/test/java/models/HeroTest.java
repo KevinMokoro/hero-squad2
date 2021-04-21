@@ -65,4 +65,10 @@ public class HeroTest {
         assertTrue(Hero.getAll().contains(newHero));
         assertTrue(Hero.getAll().contains(otherHero));
     }
+
+    @Test
+    public void getId_heroInstantiatesWithAnId_1() {
+        Hero newHero = setUpNewHero();
+        assertEquals(1,newHero.getId());
+    }
 }
