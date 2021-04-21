@@ -84,4 +84,23 @@ public class HeroTest {
         Hero otherHero = new Hero("",9,"","");
         assertEquals(2,Hero.findById(otherHero.getId()).getId());
     }
+
+    @Test
+    public void update_changesHeroDetails_true   () {
+        Hero newHero = setUpNewHero();
+        String formerName = newHero.getName();
+        int formerAge = newHero.getAge();
+        String formerPower = newHero.getPower();
+        String formerWeakness = newHero.getWeakness();
+        int formerId = newHero.getId();
+
+        newHero.update("Bat",6,"night","mask");
+
+        assertEquals(formerId,newHero.getId());
+        assertNotEquals(formerName,newHero.getName());
+        assertNotEquals(formerAge,newHero.getAge());
+        assertNotEquals(formerPower,newHero.getPower());
+        assertNotEquals(formerWeakness,newHero.getWeakness());
+
+    }
 }
