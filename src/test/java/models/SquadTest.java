@@ -79,4 +79,38 @@ public class SquadTest {
         Squad otherSquad = new Squad("",5,"");
         assertEquals(2, Squad.findById(otherSquad.getId()).getId());
     }
+
+    @Test
+    public void update_updatesSquadDetailsCorrectly_True() {
+        Squad newSquad = setUpNewSquad();
+        String formerName = newSquad.getName();
+        int formerMaxSize = newSquad.getMaxSize();
+        String formerCause = newSquad.getCause();
+        int formerId = newSquad.getId();
+
+        newSquad.update("Water",6,"drops");
+
+        assertEquals(formerId,newSquad.getId());
+        assertNotEquals(formerName,newSquad.getName());
+        assertNotEquals(formerMaxSize,newSquad.getMaxSize());
+        assertNotEquals(formerCause,newSquad.getCause());
+    }
+
+    @Test
+    public void delete_deletesSpecificSquad_true() {
+        Squad newSquad = setUpNewSquad();
+        Squad otherSquad = new Squad("",7,"");
+        newSquad.delete();
+        assertEquals(1,Squad.getAll().size());
+        assertEquals(2,Squad.getAll().get(0).getId());
+    }
+
+    @Test
+    public void deleteAllSquads_true() {
+        Squad newSquad = setUpNewSquad();
+        Squad otherSquad = new Squad("",8,"");
+
+        Squad.clearAllSquads();
+        assertEquals(0, Squad.getAll().size());
+    }
 }

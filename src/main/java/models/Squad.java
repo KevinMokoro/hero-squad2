@@ -43,4 +43,14 @@ public class Squad {
     public static Squad findById(int id){
         return instances.get(id-1);
     }
+    public void update(String name,int maxSize,String cause){
+        this.name = name;
+        this.maxSize = maxSize;
+        this.cause = cause;
+    }
+    public void delete() {
+        instances.remove(id-1);
+    }
+
+
 }
