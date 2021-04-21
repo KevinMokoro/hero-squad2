@@ -43,4 +43,10 @@ public class HeroTest {
         Hero testHero = setUpNewHero();
         assertEquals("hoping",testHero.getPower());
     }
+
+    @Test
+    public void getWeakness_getsHeroWeakness_String() throws Exception{
+        Hero testHero = setUpNewHero();
+        assertEquals("water",testHero.getWeakness());
+    }
 }
