@@ -41,6 +41,13 @@ public class App{
             return new ModelAndView(model,"heroes.hbs");
         }, new HandlebarsTemplateEngine());
 
+        get("heroes/:id", (request, response) -> {
+            Map<String,Object> model = new HashMap<>();
+            Hero selectedHero = Hero.findById(Integer.parseInt(request.queryParams(":id")));
+            model.put("selectedHero",selectedHero);
+            return new ModelAndView(model,"hero-detail.hbs");
+        },new HandlebarsTemplateEngine());
+
 
 
     }
