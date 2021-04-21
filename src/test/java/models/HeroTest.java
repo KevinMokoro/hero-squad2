@@ -33,6 +33,14 @@ public class HeroTest {
     }
 
     @Test
-    public void () {
+    public void getAge__getsHeroAge_17() throws Exception {
+        Hero testHero = setUpNewHero();
+        assertEquals(17,testHero.getAge());
+    }
+
+    @Test
+    public void getPower_getsHeroPower_String() throws Exception{
+        Hero testHero = setUpNewHero();
+        assertEquals("hoping",testHero.getPower());
     }
 }
