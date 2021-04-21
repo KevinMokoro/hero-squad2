@@ -26,4 +26,13 @@ public class HeroTest {
         assertTrue(testHero instanceof Hero);
     }
 
+    @Test
+    public void newHero_getsName_String() throws Exception {
+        Hero testHero = setUpNewHero();
+        assertEquals("Spider",testHero.getName());
+    }
+
+    @Test
+    public void () {
+    }
 }
