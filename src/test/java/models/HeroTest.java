@@ -112,4 +112,14 @@ public class HeroTest {
         assertEquals(1,Hero.getAll().size());
         assertEquals(2,Hero.getAll().get(0).getId());
     }
+
+    @Test
+    public void deleteAll_deletesAllHeroes_true() {
+        Hero newHero = setUpNewHero();
+        Hero otherHero = new Hero("",7,"","");
+
+        Hero.clearAll();
+        assertEquals(0,Hero.getAll().size());
+
+    }
 }
