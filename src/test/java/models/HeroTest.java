@@ -71,4 +71,17 @@ public class HeroTest {
         Hero newHero = setUpNewHero();
         assertEquals(1,newHero.getId());
     }
+
+    @Test
+    public void findById_returnsCorrectHero_true() {
+        Hero newHero = setUpNewHero();
+        assertEquals(1, Hero.findById(newHero.getId()).getId());
+    }
+
+    @Test
+    public void findById_returnsCorrectHeroWhenThereExistMoreThanOne_true() {
+        Hero newHero = setUpNewHero();
+        Hero otherHero = new Hero("",9,"","");
+        assertEquals(2,Hero.findById(otherHero.getId()).getId());
+    }
 }
