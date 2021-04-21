@@ -58,6 +58,25 @@ public class SquadTest {
         Squad otherSquad = new Squad("",8,"");
         assertTrue(Squad.getAll().contains(newSquad));
         assertTrue(Squad.getAll().contains(otherSquad));
+    }
 
+    @Test
+    public void getId_squadInstantiatesWithId_true() {
+        Squad newSquad = setUpNewSquad();
+        assertEquals(1,newSquad.getId());
+
+    }
+
+    @Test
+    public void findById_returnsCorrectSquad_true() {
+        Squad newSquad = setUpNewSquad();
+        assertEquals(1,Squad.findById(newSquad.getId()).getId());
+    }
+
+    @Test
+    public void findById_returnsCorrectSquadWhenMoreThan2_true() {
+        Squad newSquad = setUpNewSquad();
+        Squad otherSquad = new Squad("",5,"");
+        assertEquals(2, Squad.findById(otherSquad.getId()).getId());
     }
 }
