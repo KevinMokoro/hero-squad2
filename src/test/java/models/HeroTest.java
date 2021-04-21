@@ -14,10 +14,11 @@ public class HeroTest {
 
     @After
     public void tearDown() throws Exception {
+        Hero.clearAll();
     }
 
 
-    private Hero setUpNewHero() {
+    public Hero setUpNewHero() {
         return new Hero("Spider",17,"hoping","water");
     }
     @Test
@@ -48,5 +49,20 @@ public class HeroTest {
     public void getWeakness_getsHeroWeakness_String() throws Exception{
         Hero testHero = setUpNewHero();
         assertEquals("water",testHero.getWeakness());
+    }
+
+    @Test
+    public void getAll_returnsAllHeroes_true() throws Exception {
+        Hero newHero = setUpNewHero();
+        Hero otherHero = new Hero("",8,"","");
+        assertEquals(2,Hero.getAll().size());
+    }
+
+    @Test
+    public void getAll_containsAllHeroes_true() throws Exception{
+        Hero newHero = setUpNewHero();
+        Hero otherHero = new Hero("",4,"","");
+        assertTrue(Hero.getAll().contains(newHero));
+        assertTrue(Hero.getAll().contains(otherHero));
     }
 }
