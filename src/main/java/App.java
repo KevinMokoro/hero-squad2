@@ -17,12 +17,12 @@ public class App{
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
-        get("heroes/new",(request, response) -> {
+        get("/heroes/new",(request, response) -> {
             Map<String,Object> model = new HashMap<>();
             return new ModelAndView(model, "hero-form.hbs");
         }, new HandlebarsTemplateEngine() );
 
-        post("heroes/new",(request, response) -> {
+        post("/heroes/new",(request, response) -> {
             Map<String,Object> model = new HashMap<>();
             String name = request.queryParams("name");
             int age = Integer.parseInt(request.queryParams("age"));
@@ -41,10 +41,11 @@ public class App{
             return new ModelAndView(model,"heroes.hbs");
         }, new HandlebarsTemplateEngine());
 
-        get("heroes/:id", (request, response) -> {
+        get("/heroes/:id", (request, response) -> {
             Map<String,Object> model = new HashMap<>();
-            Hero selectedHero = Hero.findById(Integer.parseInt(request.queryParams(":id")));
-            model.put("selectedHero",selectedHero);
+           // int idOfHeroToFind = Integer.parseInt(request.params("id"));
+            Hero selectedHero = Hero.findById(Integer.parseInt(request.params("id")));
+            model.put("selectedHero", selectedHero);
             return new ModelAndView(model,"hero-detail.hbs");
         },new HandlebarsTemplateEngine());
 
