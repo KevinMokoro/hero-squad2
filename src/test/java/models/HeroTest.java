@@ -86,7 +86,7 @@ public class HeroTest {
     }
 
     @Test
-    public void update_changesHeroDetails_true   () {
+    public void update_changesHeroDetails_true () {
         Hero newHero = setUpNewHero();
         String formerName = newHero.getName();
         int formerAge = newHero.getAge();
@@ -102,5 +102,14 @@ public class HeroTest {
         assertNotEquals(formerPower,newHero.getPower());
         assertNotEquals(formerWeakness,newHero.getWeakness());
 
+    }
+
+    @Test
+    public void delete_deletesASpecificHero_true() {
+        Hero newHero = setUpNewHero();
+        Hero otherHero = new Hero("",8,"","");
+        newHero.delete();
+        assertEquals(1,Hero.getAll().size());
+        assertEquals(2,Hero.getAll().get(0).getId());
     }
 }
