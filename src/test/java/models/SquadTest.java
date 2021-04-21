@@ -14,6 +14,7 @@ public class SquadTest {
 
     @After
     public void tearDown() throws Exception {
+        Squad.clearAllSquads();
     }
 
     public Squad setUpNewSquad() {
@@ -36,5 +37,27 @@ public class SquadTest {
     public void getMaxSize_getsSquadSize_5() {
         Squad newSquad = setUpNewSquad();
         assertEquals(5,newSquad.getMaxSize());
+    }
+
+    @Test
+    public void getCause_getsSquadCause_String() {
+        Squad newSquad  = setUpNewSquad();
+        assertEquals("Cause",newSquad.getCause());
+    }
+
+    @Test
+    public void getAll_returnsAllSquads_true() {
+        Squad newSquad = setUpNewSquad();
+        Squad otherSquad = new Squad("",7,"");
+        assertEquals(2,Squad.getAll().size());
+    }
+
+    @Test
+    public void getAll_containsAllSquads_true() {
+        Squad newSquad =setUpNewSquad();
+        Squad otherSquad = new Squad("",8,"");
+        assertTrue(Squad.getAll().contains(newSquad));
+        assertTrue(Squad.getAll().contains(otherSquad));
+
     }
 }
