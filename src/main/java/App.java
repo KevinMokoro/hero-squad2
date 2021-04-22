@@ -115,6 +115,15 @@ public class App{
         },new HandlebarsTemplateEngine());
 
 
+        get("/squads/:id/update",(request, response) -> {
+            Map<String,Object> model = new HashMap<>();
+            Squad editSquad = Squad.findById(Integer.parseInt(request.params("id")));
+            model.put("editSquad",editSquad);
+            return new ModelAndView(model,"squad-form.hbs");
+        },new HandlebarsTemplateEngine());
+
+
+
 
     }
 }
