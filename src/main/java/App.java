@@ -3,6 +3,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import models.Hero;
+import models.Squad;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 import static spark.Spark.*;
@@ -85,6 +86,18 @@ public class App{
             Map<String,Object> model = new HashMap<>();
             return new ModelAndView(model, "squad-form.hbs");
         }, new HandlebarsTemplateEngine() );
+
+        post("/squads/new",(request, response) -> {
+            Map<String,Object> model = new HashMap<>();
+            String name = request.queryParams("name");
+            int maxSize = Integer.parseInt(request.queryParams("maxSize"));
+            String cause = request.queryParams("cause");
+
+
+            Squad newSquad= new Squad(name,maxSize,cause);
+            model.put("newSquad",newSquad);
+            return new ModelAndView(model, "success.hbs");
+        },new HandlebarsTemplateEngine());
 
 
     }
