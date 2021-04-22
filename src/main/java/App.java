@@ -66,7 +66,7 @@ public class App{
         post("/heroes/:id/update",(request, response) -> {
             Map<String,Object> model = new HashMap<>();
             String newName = request.queryParams("name");
-            int newAge = Integer.parseInt(request.params("age"));
+            int newAge = Integer.parseInt(request.queryParams("age"));
             String newPower = request.queryParams("power");
             String newWeakness = request.queryParams("weakness");
             Hero editedHero = Hero.findById(Integer.parseInt(request.params("id")));
@@ -133,7 +133,7 @@ public class App{
         post("/squads/:id/update",(request, response) -> {
             Map<String,Object> model = new HashMap<>();
             String newName = request.queryParams("name");
-            int newMaxSize = Integer.parseInt(request.params("maxSize"));
+            int newMaxSize = Integer.parseInt(request.queryParams("maxSize"));
             String newCause = request.queryParams("cause");
             Squad editedSquad = Squad.findById(Integer.parseInt(request.params("id")));
             editedSquad.update(newName,newMaxSize,newCause);
