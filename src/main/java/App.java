@@ -107,6 +107,14 @@ public class App{
             return new ModelAndView(model,"squads.hbs");
         }, new HandlebarsTemplateEngine());
 
+        get("/squads/:id", (request, response) -> {
+            Map<String,Object> model = new HashMap<>();
+            Squad selectedSquad = Squad.findById(Integer.parseInt(request.params("id")));
+            model.put("selectedSquad", selectedSquad);
+            return new ModelAndView(model,"squad-detail.hbs");
+        },new HandlebarsTemplateEngine());
+
+
 
     }
 }
