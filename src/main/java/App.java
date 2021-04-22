@@ -62,10 +62,18 @@ public class App{
             int newAge = Integer.parseInt(request.params("age"));
             String newPower = request.queryParams("power");
             String newWeakness = request.queryParams("weakness");
-            Hero editHero = Hero.findById(Integer.parseInt(request.params("id")));
-            editHero.update(newName,newAge,newPower,newWeakness);
+            Hero editedHero = Hero.findById(Integer.parseInt(request.params("id")));
+            editedHero.update(newName,newAge,newPower,newWeakness);
+         //   model.put("editedHero",editedHero);
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
+
+        get("/heroes/:id/delete",(request, response) -> {
+            Map<String,Object> model = new HashMap<>();
+            Hero toDelete = Hero.findById(Integer.parseInt(request.params("id")));
+            toDelete.delete();
+            return new ModelAndView(model,"success.hbs");
+        },new HandlebarsTemplateEngine());
 
 
 
