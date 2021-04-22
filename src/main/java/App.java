@@ -56,6 +56,18 @@ public class App{
             return new ModelAndView(model,"hero-form.hbs");
         },new HandlebarsTemplateEngine());
 
+        post("/heroes/:id/update",(request, response) -> {
+            Map<String,Object> model = new HashMap<>();
+            String newName = request.queryParams("name");
+            int newAge = Integer.parseInt(request.params("age"));
+            String newPower = request.queryParams("power");
+            String newWeakness = request.queryParams("weakness");
+            Hero editHero = Hero.findById(Integer.parseInt(request.params("id")));
+            editHero.update(newName,newAge,newPower,newWeakness);
+            return new ModelAndView(model, "success.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
 
 
     }
