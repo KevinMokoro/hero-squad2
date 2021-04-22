@@ -100,5 +100,13 @@ public class App{
         },new HandlebarsTemplateEngine());
 
 
+        get("/squads",(request, response) -> {
+            Map<String,Object> model = new HashMap<>();
+            ArrayList<Squad> allSquads = Squad.getAll();
+            model.put("allSquads",allSquads);
+            return new ModelAndView(model,"squads.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
     }
 }
