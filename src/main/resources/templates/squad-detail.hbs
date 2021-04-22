@@ -1,0 +1,19 @@
+{{#partial "content"}}
+
+    <p>SQUAD NAME</p>
+    <p>{{ selectedSquad.name }}</p>
+
+    <p>MAX SIZE</p>
+    <p>{{ selectedSquad.maxSize }}</p>
+
+    <p>CAUSE</p>
+    <p>{{ selectedSquad.cause}}</p>
+
+
+
+    <a href ="/squads/{{selectedSquad.id}}/update">Edit Details</a>
+    <a href="/squads/{{selectedSquad.id}}/delete">Delete SQUAD</a>
+
+{{/partial}}
+
+{{> layout.hbs}}
