@@ -1,0 +1,20 @@
+{{#partial "content"}}
+
+    <p>Selected Hero</p>
+    <p>{{ selectedHero.name }}</p>
+
+    <p>AGED</p>
+    <p>{{ selectedHero.age }}</p>
+
+    <p>Special Power</p>
+    <p>{{ selectedHero.power }}</p>
+
+    <p>Weakness</p>
+    <p>{{ selectedHero.weakness }}</p>
+
+    <a href ="/heroes/{{selectedHero.id}}/update">Edit Hero</a>
+    <a href="/heroes/{{selectedHero.id}}/delete">Delete Hero</a>
+
+{{/partial}}
+
+{{> layout.hbs}}
