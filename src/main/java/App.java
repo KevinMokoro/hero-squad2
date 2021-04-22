@@ -41,6 +41,12 @@ public class App{
             return new ModelAndView(model,"heroes.hbs");
         }, new HandlebarsTemplateEngine());
 
+        get("/heroes/delete",(request, response) -> {
+            Map<String,Object> model = new HashMap<>();
+            Hero.clearAll();
+            return new ModelAndView(model,"success.hbs");
+        },new HandlebarsTemplateEngine());
+
         get("/heroes/:id", (request, response) -> {
             Map<String,Object> model = new HashMap<>();
            // int idOfHeroToFind = Integer.parseInt(request.params("id"));
@@ -74,6 +80,8 @@ public class App{
             toDelete.delete();
             return new ModelAndView(model,"success.hbs");
         },new HandlebarsTemplateEngine());
+
+
 
 
 
