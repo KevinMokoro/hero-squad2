@@ -107,6 +107,13 @@ public class App{
             return new ModelAndView(model,"squads.hbs");
         }, new HandlebarsTemplateEngine());
 
+
+        get("/squads/delete",(request, response) -> {
+            Map<String,Object> model = new HashMap<>();
+            Squad.clearAllSquads();
+            return new ModelAndView(model,"success.hbs");
+        },new HandlebarsTemplateEngine());
+
         get("/squads/:id", (request, response) -> {
             Map<String,Object> model = new HashMap<>();
             Squad selectedSquad = Squad.findById(Integer.parseInt(request.params("id")));
@@ -121,6 +128,27 @@ public class App{
             model.put("editSquad",editSquad);
             return new ModelAndView(model,"squad-form.hbs");
         },new HandlebarsTemplateEngine());
+
+
+        post("/squads/:id/update",(request, response) -> {
+            Map<String,Object> model = new HashMap<>();
+            String newName = request.queryParams("name");
+            int newMaxSize = Integer.parseInt(request.params("maxSize"));
+            String newCause = request.queryParams("cause");
+            Squad editedSquad = Squad.findById(Integer.parseInt(request.params("id")));
+            editedSquad.update(newName,newMaxSize,newCause);
+            return new ModelAndView(model, "success.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/squads/:id/delete",(request, response) -> {
+            Map<String,Object> model = new HashMap<>();
+            Squad toDelete = Squad.findById(Integer.parseInt(request.params("id")));
+            toDelete.delete();
+            return new ModelAndView(model,"success.hbs");
+        },new HandlebarsTemplateEngine());
+
+
+
 
 
 
