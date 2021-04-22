@@ -7,7 +7,6 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title> {{#block "title"}} HEROES {{/block}} </title>
         <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
-        <link rel="stylesheet" href="/css/main.css">
         <link rel='stylesheet' href='/app.css'>
     </head>
     <body>
@@ -16,23 +15,20 @@
         <li role="presentation"><a href="/heroes">See all heroes</a></li>
         <li role="presentation"><a href="/heroes/new">Add a Hero</a> </li>
         <li role="presentation"><a href="/squads/new">Add a Squad</a></li>
-        <li role="presentation"><a href="/">All Squads</a></li>
+        <li role="presentation"><a href="/squads">All Squads</a></li>
 "
     </ul>
 {{/block}}
 <div class="container">
     <div class="page-header">
-        <img src="/images/caspar-rubin-224229.jpg" width="70%">
         <h1> HERO SQUAD <small> Make The World A Better Place</small></h1>
     </div>
     <div class="col-md-12">
-        <!--begin main template-->
         {{#block "content"}}
 
         {{/block}}
     </div>
 </div>
-<!--end main template-->
 {{#block "footer"}}
     <footer class="footer">
         <div class="container">
