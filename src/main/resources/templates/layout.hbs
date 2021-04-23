@@ -9,17 +9,16 @@
         <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
         <link rel='stylesheet' href='/app.css'>
     </head>
-    <body>
-    <ul class="nav nav-tabs">
-        <li role="presentation" class="active"><a href="#">Home</a></li>
-        <li role="presentation"><a href="/heroes">See all heroes</a></li>
-        <li role="presentation"><a href="/heroes/new">Add a Hero</a> </li>
-        <li role="presentation"><a href="/squads/new">Add a Squad</a></li>
-        <li role="presentation"><a href="/squads">All Squads</a></li>
-"
-    </ul>
 {{/block}}
-<div class="container">
+    <body>
+    <div class = "sidenav">
+            <a href="/">Home</a>
+            <a href="/heroes/new">Add a Hero</a>
+            <a href="/heroes">See all heroes</a>
+            <a href="/squads/new">Add a Squad</a>
+            <a href="/squads">All Squads</a>
+    </div>
+    <div class="content">
     <div class="page-header">
         <h1> HERO SQUAD <small> Make The World A Better Place</small></h1>
     </div>
@@ -28,15 +27,9 @@
 
         {{/block}}
     </div>
-</div>
-{{#block "footer"}}
-    <footer class="footer">
-        <div class="container">
-            <p class="text-muted"><a href="/heroes/delete">DELETE ALL HEROES</a></p>
-            <p class="test-muted"><a href="/squads/delete">DELETE ALL SQUADS</a> </p>
-        </div>
-    </footer>
+    </div>
+
     </body>
-    </html>
-{{/block}}
+</html>
+
 
